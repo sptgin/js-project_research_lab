@@ -23,17 +23,26 @@
     <link rel="stylesheet" href="dist/basicLightbox.min.css" />
   </head>
   <body>
-    <h1>Pixabay image finder</h1>
-    <form class="search-form" id="search-form">
+    <h1>FIND BEST EVENTS AROUND THE WORLD</h1>
+    <form class="search-form-event" id="search-form-event">
       <input
         class="search-input"
         type="text"
         name="query"
         autocomplete="off"
-        placeholder="Search images..."
+        placeholder="Start searching"
       />
     </form>
-    <ul class="gallery"></ul>
+    <form class="search-form-country" id="search-form-country">
+      <input
+        class="search-input"
+        type="text"
+        name="query"
+        autocomplete="off"
+        placeholder="Choose country"
+      />
+    </form>
+    <ul class="events"></ul>
     <button class="button_nodisplay" id="search-more">more</button>
     <script src="dist/basicLightbox.min.js"></script>
     <script src="./index.js"></script>

@@ -1,7 +1,7 @@
-const API_KEY = '5018958-ed49ccd90878e6614abdf24a6';
+const API_KEY = 'H8Kwuu9G8KhBdezYidcSqsGG75v7WeRv';
 const TYPE = 'image_type=photo';
 const ORIENTATION = 'orientation=horizontal';
-const BASE_URL = 'https://pixabay.com/api/';
+const BASE_URL = 'https://app.ticketmaster.com/discovery/v2/events.json';
 
 export default class SearchImageAPI {
   constructor() {
@@ -9,12 +9,13 @@ export default class SearchImageAPI {
     this.page = 1;
   }
 
-  fetchImages() {
-    const url = `${BASE_URL}?${TYPE}&${ORIENTATION}&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`;
+  fetchEvents() {
+    const url = `${BASE_URL}?size=20&keyword=${this.searchQuery}&page=${this.page}&apikey=${API_KEY}`;
     return fetch(url)
       .then(response => response.json())
-      .then(images => {
-        return images.hits;
+      .then(events => {
+        console.log(events._embedded.events);
+        return events._embedded.event;
       })
       .catch();
   }

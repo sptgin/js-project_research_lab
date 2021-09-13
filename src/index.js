@@ -6,43 +6,44 @@ import {
 import * as PNotifyMobile from '../node_modules/@pnotify/mobile/dist/PNotifyMobile.js';
 import icons from 'material-design-icons';
 
-import imageSearchFormTemplate from './templates/imagesearchform.hbs';
-import imagesListTemplate from './templates/imagegallery.hbs';
-import imageCardTemplate from './templates/imagecard.hbs';
-import SearchImageAPI from './apiService';
+import eventsListTemplate from './templates/eventslist.hbs';
+import eventCardTemplate from './templates/eventcard.hbs';
+import SearchEventsAPI from './apiService';
 import * as basicLightbox from 'basiclightbox';
-const imageSearchInput = document.querySelector('#search-form');
-const imageSearchList = document.querySelector('.gallery');
-const imageSearchCard = document.querySelector('.photo-card');
-const imageSearchMoreButton = document.querySelector('#search-more');
-const imageSearchAPI = new SearchImageAPI();
+const eventsSearchInput = document.querySelector('#search-form-event');
+const eventsSearchCountryInput = document.querySelector('#search-form-country');
+const eventsSearchList = document.querySelector('.events');
+const eventSearchCard = document.querySelector('.event-card');
+const eventsSearchMoreButton = document.querySelector('#search-more');
+const eventsSearchAPI = new SearchEventsAPI();
 
-imageSearchInput.addEventListener('submit', imageSearch);
-imageSearchMoreButton.addEventListener('click', imageSearcMore);
-imageSearchList.addEventListener('click', imageSearchShowFull);
+eventsSearchInput.addEventListener('submit', eventsSearch);
+eventsSearchMoreButton.addEventListener('click', eventsSearcMore);
+eventsSearchList.addEventListener('click', eventsSearchShowFull);
 
-function imageSearch(event) {
+function eventsSearch(event) {
   event.preventDefault();
-  imageSearchListClear();
-  imageSearchAPI.resetPage();
-  buttonNoDisplay(imageSearchMoreButton);
-  imageSearchGetData(imageSearchInput.firstElementChild.value);
-  buttonDisplay(imageSearchMoreButton);
+  eventsSearchListClear();
+  eventsSearchAPI.resetPage();
+  buttonNoDisplay(eventsSearchMoreButton);
+  eventsSearchGetData(eventsSearchInput.firstElementChild.value);
+  buttonDisplay(eventsSearchMoreButton);
 }
 
-function imageSearcMore(event) {
+function eventsSearcMore(event) {
   event.preventDefault();
-  imageSearchAPI.incrementPage();
-  imageSearchGetData(imageSearchInput.firstElementChild.value);
+  eventsSearchAPI.incrementPage();
+  eventsSearchGetData(eventsSearchInput.firstElementChild.value);
 }
 
-function imageSearchGetData(query) {
-  imageSearchAPI.query = query;
-  imageSearchAPI
-    .fetchImages()
-    .then(images => {
-      if (images.length !== 0) {
-        imageSearchListMake(images);
+function eventsSearchGetData(query) {
+  eventsSearchAPI.query = query;
+  eventsSearchAPI
+    .fetchEvents()
+    .then(e => {
+      if (e.length !== 0) {
+        console.log('!!!');
+        eventsSearchListMake(e);
       } else {
         alert({
           text: 'No matces found !',
@@ -58,24 +59,24 @@ function imageSearchGetData(query) {
     });
 }
 
-function imageSearchListMake(images) {
-  imageSearchList.insertAdjacentHTML(
+function eventsSearchListMake(e) {
+  eventsSearchList.insertAdjacentHTML(
     'beforeend',
-    images.map(imageCardTemplate).map(imagesListTemplate).join(' '),
+    e.map(eventCardTemplate).map(eventsListTemplate).join(' '),
   );
-  if (imageSearchAPI.page > 1) {
-    imageSearchList.scrollIntoView({
+  if (eventsSearchAPI.page > 1) {
+    eventsSearchList.scrollIntoView({
       behavior: 'smooth',
       block: 'end',
     });
   }
 }
 
-function imageSearchListClear() {
-  imageSearchList.innerHTML = '';
+function eventsSearchListClear() {
+  eventsSearchList.innerHTML = '';
 }
 
-function imageSearchShowFull(event) {
+function eventsSearchShowFull(event) {
   event.preventDefault();
   if (event.target.nodeName !== 'IMG') return;
   basicLightbox.create(event.originalTarget.outerHTML).show();
