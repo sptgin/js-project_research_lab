@@ -1,6 +1,10 @@
 <div class='event-card'>
-  <img src={{null}} alt='' />
 
+  {{#each images}}
+
+    <img src={{url}} alt='{{name}}' />
+
+  {{/each}}
   <div class='stats'>
     <p class='event-item-name'>
 
@@ -8,12 +12,19 @@
     </p>
     <p class='event-item-data'>
 
-      {{null}}
+      {{dates.start.localDate}}
     </p>
-    <p class='event-item-location'>
-
-      {{null}}
+    <p class='event-item-location-map'>
+      {{#each _embedded.venues}}
+        <a
+          href='https://maps.google.com?ll={{location.latitude}},{{location.longitude}}&zoom=10'
+          target='_blank'
+          rel='nofollow noreferrer'
+        >Здесь</a>
+        <p class='event-item-location'>
+          {{name}}
+        </p>
+      {{/each}}
     </p>
-
   </div>
 </div>

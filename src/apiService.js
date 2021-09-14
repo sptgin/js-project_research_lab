@@ -15,7 +15,7 @@ export default class SearchImageAPI {
       .then(response => response.json())
       .then(events => {
         console.log(events._embedded.events);
-        return events._embedded.event;
+        return events._embedded.events;
       })
       .catch();
   }

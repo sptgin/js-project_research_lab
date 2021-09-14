@@ -40,10 +40,17 @@ function eventsSearchGetData(query) {
   eventsSearchAPI.query = query;
   eventsSearchAPI
     .fetchEvents()
-    .then(e => {
-      if (e.length !== 0) {
-        console.log('!!!');
-        eventsSearchListMake(e);
+    .then(events => {
+      //==========================
+      events.forEach(element => {
+        console.log(element.name);
+        console.log(element.dates.start.localDate);
+        console.log(element._embedded.venues[0].name);
+        console.log(element.images[0].url);
+      });
+      //==========================
+      if (events.length !== 0) {
+        eventsSearchListMake(events);
       } else {
         alert({
           text: 'No matces found !',
@@ -59,10 +66,10 @@ function eventsSearchGetData(query) {
     });
 }
 
-function eventsSearchListMake(e) {
+function eventsSearchListMake(events) {
   eventsSearchList.insertAdjacentHTML(
     'beforeend',
-    e.map(eventCardTemplate).map(eventsListTemplate).join(' '),
+    events.map(eventCardTemplate).map(eventsListTemplate).join(' '),
   );
   if (eventsSearchAPI.page > 1) {
     eventsSearchList.scrollIntoView({
