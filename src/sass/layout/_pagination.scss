@@ -1,0 +1,112 @@
+.tui-pagination {
+  text-align: center;
+  height: 25px;
+}
+
+.tui-page-btn {
+  display: inline-block;
+  text-decoration: none;
+  margin-left: 5px;
+  padding: 6px 0 5px;
+  width: 30px;
+  font-size: 14px;
+  vertical-align: middle;
+  color: white;
+  align-items: center;
+}
+
+.tui-page-btn:hover,
+.tui-page-btn:focus {
+ border-radius: 25% 10%;
+ box-shadow: 1.5px 1.5px 10px 5px var(--accentColor);
+}
+.tui-is-selected {
+  color: var(--accentColor);
+  border: 1px solid #dc56c5;
+  border-radius: 25% 10%;
+  
+  &:hover,
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.tui-is-disabled {
+  color: pink;
+}
+.tui-ico-first,
+.tui-ico-next,
+.tui-ico-prev,
+.tui-ico-last {
+  width: 30px;
+  height: 23px;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0px;
+  fill: white;
+}
+
+.tui-pagination .tui-ico-first,
+.tui-pagination .tui-ico-prev,
+.tui-pagination .tui-ico-next,
+.tui-pagination .tui-ico-last {
+  background: url('../images/sp_btn.png') no-repeat 0 0;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0px;
+}
+
+.tui-pagination .tui-ico-first {
+  width: 11px;
+  height: 10px;
+  background-position: -13px 0px;
+}
+
+.tui-pagination .tui-ico-prev {
+  width: 6px;
+  height: 10px;
+  background-position: -26px -12px;
+}
+
+.tui-pagination .tui-ico-next {
+  width: 6px;
+  height: 10px;
+  background-position: -21px -24px;
+}
+
+.tui-pagination .tui-ico-last {
+  width: 11px;
+  height: 10px;
+  background-position: -13px -12px;
+}
+
+.tui-pagination .tui-ico-ellip {
+  width: 10px;
+  height: 2px;
+  margin-top: 16px;
+  vertical-align: top;
+  background-position: 0px -24px;
+}
+
+.tui-pagination .tui-is-disabled:hover {
+  background: none;
+  border: none;
+  box-shadow: none;
+  cursor: default;
+}
+
+.tui-pagination .tui-is-disabled .tui-ico-prev {
+  background-position: -26px 0px;
+}
+
+.tui-pagination .tui-is-disabled .tui-ico-first {
+  background-position: 0px 0px;
+}
+
+.tui-pagination .tui-is-disabled .tui-ico-next {
+  background-position: -13px -24px;
+}
+
+.tui-pagination .tui-is-disabled .tui-ico-last {
+  background-position: 0px -12px;
+}

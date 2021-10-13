@@ -1,0 +1,65 @@
+<div class="modal_main__thumb">
+  <img src={{this.image.url}} alt="event" />
+</div>
+
+<div class="modal__flex">
+  <div class="modal__flex-thumb">
+    <img class="modal_main__image" src={{this.image.url}} alt={{this.name}}/>
+  </div>
+
+
+  <div class="modal__content">
+    <div class="modal--wrapper">
+<div class="modal__meta  ">
+  <h3 class="modal_main__title">INFO</h3>
+  <p>{{this.info}}</p>
+</div>
+
+<div class="modal__meta">
+  <h3 class="modal_main__title">WHEN</h3>
+  <p>{{this.localDate}}</p>
+  <p>{{this.localTime}} ({{this.timeZone}})</p>
+</div>
+
+<div class="modal__meta">
+  <h3 class="modal_main__title">WHERE</h3>
+  <p>{{this.city}}, {{this.country}}</p>
+  <p>{{this.place}}</p>
+</div>
+
+<div class="modal__meta">
+  <h3 class="modal_main__title">WHO</h3>
+  <p>{{this.name}}</p>
+</div>
+    </div>
+    
+
+    <div class="modal__meta">
+      <h3 class="modal_main__title">PRICES</h3>
+      <p class="modal__price">
+        Standart {{this.priceSt.min}} - {{this.priceSt.max}} {{this.priceSt.currency}}
+      
+      </p>
+      <a
+              href="{{this.url}}"
+              data-eventId={{this.id}}
+              class="button button--ticket"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-modal_button_standard
+            >BUY TICKETS</a>
+      
+      {{!-- <p class="modal__price">
+        VIP {{this.priceVip.min}} - {{this.priceVip.max}} {{this.priceVip.currency}}
+      </p>
+       <a
+              href="{{this.url}}"
+              data-eventId={{this.id}}
+              class="button button--ticket"
+              target="_blank"
+              rel="noopener noreferrer"
+               data-modal_button_vip
+            >BUY TICKETS</a> --}}
+    </div>
+  </div>
+</div>

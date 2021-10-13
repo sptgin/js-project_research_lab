@@ -1,0 +1,284 @@
+.overlay.is-hidden .modal_main {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.modal_main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  border-radius: 150px 0px;
+
+  background-color: var(--modalBgColor);
+  color: var(--modalFontColor);
+  line-height: 1.25;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  width: calc(100% - 48px);
+  height: calc(100% - 50px);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 40px;
+  padding-bottom: 120px;
+
+  @media screen and (min-width: $tablet) {
+    width: 595px;
+    border-radius: 300px 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 90px;
+    padding-bottom: 80px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 930px;
+    border-radius: 250px 0px;
+    padding: 30px;
+  }
+  @media screen and (max-height: 800px) {
+    overflow-y: auto;
+    &:hover {
+      scrollbar-width: thin;
+      &::-webkit-scrollbar {
+        display: block;
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #9c9c9c;
+
+        &:hover {
+          background-color: darken(#9c9c9c, 10%);
+        }
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-track-piece:end {
+        background: transparent;
+        margin-bottom: 280px;
+      }
+      &::-webkit-scrollbar-track-piece:start {
+        background: transparent;
+        margin-top: 200px;
+      }
+    }
+
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 7px;
+    }
+
+    scrollbar-color: transparent;
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+  }
+}
+.modal--wrapper {
+  max-height: 200px;
+  margin-bottom: 15px;
+  overflow: auto;
+  overscroll-behavior: container;
+  overflow: overlay;
+
+  &:hover {
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 7px;
+    }
+
+    scrollbar-color: #9c9c9c #9c9c9c55;
+    &::-webkit-scrollbar-thumb {
+      background-color: #9c9c9c;
+
+      &:hover {
+        background-color: darken(#9c9c9c, 10%);
+      }
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #f5f5f555;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+    }
+  }
+
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
+  }
+
+  scrollbar-color: transparent;
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  @media screen and(min-width: $tablet) {
+    max-height: 300px;
+  }
+}
+
+.modal_main__thumb {
+  width: 102px;
+  height: 102px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 18px;
+
+  @media screen and (min-width: $tablet) {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 43px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 132px;
+    height: 132px;
+    margin-bottom: 41px;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.modal__flex {
+  margin-bottom: 25px;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 45px;
+    display: flex;
+    align-items: flex-start;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 20px;
+  }
+}
+
+.modal__flex-thumb {
+  @media screen and (max-width: $tablet - 1) {
+    display: none;
+  }
+
+  @media screen and (min-width: $tablet) {
+    flex-shrink: 0;
+    width: 233px;
+    height: 416px;
+    overflow: hidden;
+    margin-right: 30px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 360px;
+    height: 447px;
+    margin-right: 60px;
+  }
+}
+
+.modal_main__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.modal__meta--scroll {
+  max-height: 62px;
+  overflow-y: auto;
+  @media screen and(min-width: $desktop) {
+    max-height: 200px;
+  }
+}
+.modal__meta {
+  @media screen and (max-width: $tablet - 1) {
+    text-align: center;
+  }
+  @media screen and(min-width: $desktop) {
+    font-size: 18px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+
+    @media screen and(min-width: $desktop) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .modal__price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    @media screen and (min-width: $tablet) {
+      justify-content: flex-start;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-bottom: 20px;
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      background-image: url('../images/ticket1.svg');
+      width: 22px;
+      height: 16px;
+      margin-right: 13px;
+
+      @media screen and (min-width: $tablet) {
+        width: 24px;
+        height: 16px;
+      }
+
+      @media screen and (min-width: $tablet) {
+        width: 29px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.modal_main__title {
+  color: var(--accentColor);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+
+  @media screen and(min-width: $desktop) {
+    font-size: 24px;
+    margin-bottom: 7px;
+  }
+}
+
+.modal__footer {
+  text-align: center;
+}
+
+.modal__meta--scroll::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+
+.modal__meta--scroll::-webkit-scrollbar-thumb {
+  background: var(--accentColor);
+  width: 12px;
+  border-radius: 20px;
+}

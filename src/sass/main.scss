@@ -1,0 +1,25 @@
+/*
+ * Главный файл стилей.
+ * Все паршалы подключаются сюда.
+ */
+
+// Стили для файла с примером HTML-фрагмента
+@import './utils/hover-animations';
+@import './utils/variables';
+@import './base/common';
+
+@import './base/container';
+@import './layout/header';
+
+@import './layout/grid';
+@import './components/button';
+@import './layout/main_modal';
+@import './layout/footer';
+@import './layout/modal_overlay';
+@import './layout/team_modal';
+@import './components/custom_select.scss';
+
+@import './layout/pagination';
+@import './layout/cards_item--animation';
+
+@import './components/preloader'

@@ -1,0 +1,25 @@
+// Colors
+:root {
+  --bgBodyColor: #0e0e0e;
+  --modalBgColor: #fff2fd;
+  --fontColor: #ffffff;
+
+  --accentColor: #dc56c5;
+  --hoverColor: #876655; //
+  --modalFontColor: #0e0e0e;
+  --footerFontColor: #939393;
+
+  --buttonBackgroundColor: #4c00fe;
+  --buttonBackgroundColorHover: #2e009a;
+  --placeholderColor: rgba(171, 129, 108, 0.5);
+
+  // Fonts
+
+  --mainFontFamily: Montserrat;
+  --mainFontSize: 16px;
+}
+
+//screen
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1280px;

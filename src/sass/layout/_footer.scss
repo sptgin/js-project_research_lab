@@ -1,0 +1,58 @@
+.footer {
+  padding-top: 60px;
+  padding-bottom: 27px;
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    padding-bottom: 18px;
+    font-size: var(--mainFontSize);
+    line-height: 1.2;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 80px;
+  }
+}
+
+.footer__content {
+  color: var(--footerFontColor);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.symbol_heart {
+  display: inline-block;
+  color: #ff0000;
+  animation: heartbeat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.footer__content a {
+  text-decoration: none;
+  font-family: var(--mainFontFamily);
+  color: var(--footerFontColor);
+
+  &:hover {
+    color: #FF6B08;
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}

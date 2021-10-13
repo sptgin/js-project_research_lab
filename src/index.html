@@ -4,44 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Homework 13</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/fav/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/fav/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/fav/favicon-16x16.png" />
+    <link rel="manifest" href="/images/fav/site.webmanifest" />
+    <link rel="mask-icon" href="images/fav/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="images/fav/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="images/fav/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Event Booster" />
+    <meta
+      property="og:description"
+      content="Find best events around the world and buy tickets. It's fun with us!"
+    />
+    <meta property="og:url" content="https://vpoklad.github.io/js-project-magic8-united/" />
+    <meta property="og:site_name" content="Event Booster" />
+    <meta property="og:locale" content="en_EN" />
+    <meta property="og:image" content="images/eventBooster-screen.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="description" content="Event search service" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
     <link
-      href="../node_modules/@pnotify/core/dist/PNotify.css"
       rel="stylesheet"
-      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
     />
-    <link
-      href="../node_modules/@pnotify/mobile/dist/PNotifyMobile.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="dist/basicLightbox.min.css" />
+    <title>Event Booster</title>
   </head>
   <body>
-    <h1>FIND BEST EVENTS AROUND THE WORLD</h1>
-    <form class="search-form-event" id="search-form-event">
-      <input
-        class="search-input"
-        type="text"
-        name="query"
-        autocomplete="off"
-        placeholder="Start searching"
-      />
-    </form>
-    <form class="search-form-country" id="search-form-country">
-      <select name="select-country" id="select-country">
-        <option value="hide">Choose country</option>
-        <option value="Japan">Japan</option>
-      </select>
-    </form>
-    <ul class="events"></ul>
-    <button class="button_nodisplay" id="search-more">more</button>
-    <script src="dist/basicLightbox.min.js"></script>
+    <div class="preloader loaded">
+      <div class="preloader__row">
+        <div class="preloader__item"></div>
+        <div class="preloader__item"></div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <include src="./partials/header.html"></include>
+      <main>
+        <include src="./partials/grid.html"></include>
+        <include src="./partials/pagination.html"></include>
+      </main>
+      <include src="./partials/footer.html"></include>
+    </div>
+    <include src="./partials/main_modal.html"></include>
+    <include src="./partials/team_modal.html"></include>
+    <include src="./partials/button_up.html"></include>
+    <!-- <include src="./partials/example.html"></include> -->
+
     <script src="./index.js"></script>
   </body>
 </html>

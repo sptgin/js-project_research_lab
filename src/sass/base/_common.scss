@@ -1,0 +1,97 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  position: relative;
+  min-width: $mobile;
+  margin: 0;
+
+  color: var(--fontColor);
+  background-color: var(--bgBodyColor);
+
+  font-family: var(--mainFontFamily), sans-serif;
+  font-weight: 400;
+  font-size: var(--mainFontSize);
+  line-height: 1.22;
+}
+
+.wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1280px;
+  background-position-x: center;
+  background-position-y: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  @media screen and(min-width: $tablet) {
+    background-image: url(../images/bg/bg_decorlines_tablet.svg);
+  }
+  @media screen and(min-width: $desktop) {
+    background-image: url(../images/bg/bg_decorlines_desktop.svg);
+  }
+}
+
+body.overlay-show {
+  overflow: hidden;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.icon {
+  fill: currentColor;
+}
+
+.test_box {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+
+  height: 600px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}

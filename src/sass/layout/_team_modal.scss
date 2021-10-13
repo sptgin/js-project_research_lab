@@ -1,0 +1,264 @@
+.backdrop-our-team {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop-our-team.is-open {
+  opacity: 1;
+  pointer-events: initial;
+  overflow: hidden;
+  z-index: 2;
+
+  .modal-our-team {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.backdrop-our-team__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(32, 13, 29, 0.8);
+  backdrop-filter: blur(3px);
+}
+
+.modal-our-team {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  height: calc(100% - 50px);
+  width: 310px;
+
+  overflow: hidden;
+
+  @media screen and (min-width: $tablet) {
+    width: 750px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 820px;
+  }
+}
+
+.our-team__scroll {
+  height: 100%;
+  overflow: auto;
+  overscroll-behavior: container;
+  overflow: overlay;
+
+  &:hover {
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 7px;
+    }
+
+    scrollbar-color: #9c9c9c #9c9c9c55;
+    &::-webkit-scrollbar-thumb {
+      background-color: #9c9c9c;
+
+      &:hover {
+        background-color: darken(#9c9c9c, 10%);
+      }
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #f5f5f555;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+    }
+  }
+
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
+  }
+
+  scrollbar-color: transparent;
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+
+.our-team {
+  display: grid;
+  justify-content: center;
+  grid-row-gap: 20px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: $mobile) {
+    grid-template-columns: repeat(2, 130px);
+    grid-gap: 30px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: repeat(4, 150px);
+    grid-gap: 30px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    grid-template-columns: repeat(4, 150px);
+    grid-gap: 40px;
+  }
+}
+
+.our-team__item {
+  @media screen and (min-width: $tablet) {
+    &:first-child {
+      grid-column: 1 / 3;
+      justify-self: end;
+    }
+
+    &:nth-child(2) {
+      grid-column: 3 / 5;
+      justify-self: start;
+    }
+  }
+
+  .item__img {
+    border-radius: 50px 0;
+    object-fit: cover;
+
+    @media screen and (min-width: $mobile) {
+      width: 130px;
+      height: 161px;
+    }
+
+    @media screen and (min-width: $tablet) {
+      width: 150px;
+      height: 227px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      width: 150px;
+      height: 227px;
+    }
+  }
+
+  .item__title {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    color: #ff6b08;
+    margin-top: 5px;
+
+    @media screen and (min-width: $tablet) {
+      font-size: var(--mainFontSize);
+    }
+  }
+
+  .item__location {
+    font-weight: normal;
+    font-size: 12px;
+    text-align: center;
+    color: var(--fontColor);
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (min-width: $tablet) {
+      font-size: 14px;
+    }
+  }
+
+  .item__icon {
+    margin-right: 5px;
+    fill: var(--fontColor);
+    width: 6px;
+    height: 9px;
+
+    @media screen and (min-width: $tablet) {
+      width: 7px;
+      height: 10px;
+    }
+  }
+
+  .social {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .social__link {
+      display: flex;
+      margin-top: 5px;
+
+      &:first-child {
+        margin-right: 5px;
+      }
+    }
+
+    .social__icon {
+      fill: #fff;
+      width: 25px;
+      height: 25px;
+
+      @media screen and (min-width: $tablet) {
+        width: 30px;
+        height: 30px;
+      }
+
+      &:hover,
+      &:focus {
+        fill: #000;
+        background-color: #ff6b08;
+        border-radius: 20%;
+      }
+    }
+  }
+}
+
+.logo-goit {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  background-color: transparent;
+  width: 100px;
+
+  transform-origin: center center;
+
+  // @media screen and (min-width: $tablet) {
+  //   width: 150px;
+  // }
+
+  &-animate {
+    animation: anime 2s linear;
+  }
+}
+
+@keyframes anime {
+  0% {
+    transform: translateY(-200px);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

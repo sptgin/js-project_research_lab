@@ -1,0 +1,12 @@
+{{#each this}}
+<li class="cards__item hvr-buzz-out" tabindex="0" data-id={{idCard}} data-eventId={{id}}>
+  <div class="thumb">
+    <img class="cards__img" src={{image.url}} alt={{name}} width="180" height="227" />
+  </div>  
+  <h3 class="item__title">{{name}}</h3>
+  <p class="item__date">{{localDate}}</p>
+  <p class="item__location">
+    {{timeZone}}
+  </p>
+</li>
+{{/each}}
